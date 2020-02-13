@@ -1,5 +1,5 @@
 var Service, Characteristic;
-var http = require("http");
+var https = require("https");
 
 const baseURL = "/admin/api.php";
 
@@ -73,7 +73,7 @@ pihole.prototype._responseHandler = function (res, next) {
 };
 
 pihole.prototype._makeRequest = function (path, next) {
-	let req = http.get({
+	let req = https.get({
 		host: this.host,
 		port: this.port,
 		path: baseURL + path
